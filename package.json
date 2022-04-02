@@ -1,0 +1,26 @@
+{
+  "name": "social-network-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tinastouch/Social-network-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tinastouch/Social-network-challenge/issues"
+  },
+  "homepage": "https://github.com/Tinastouch/Social-network-challenge#readme",
+  "dependencies": {
+    "date-format": "^4.0.6",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
+  }
+}
