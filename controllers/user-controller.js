@@ -25,7 +25,7 @@ const userController = {
         });
     },
 
-    createUser({ body }, res){
+    addUser({ body }, res){
         User.create(body)
         .then(dbUserData => res.json(dbUserData))
         .catch(err => res.json(err));
@@ -69,7 +69,7 @@ const userController = {
         .catch(err => res.json(err));
     },
 
-    deleteFriend({ params }, res){
+    removeFriend({ params }, res){
         User.findOneAndUpdate({ _id: params.id }, 
             { $pull: { friends: params.friendId } }, 
             { new: true }
