@@ -14,7 +14,7 @@ const thoughtController = {
       });
   },
   // get single thought by id
-  getSingleThought(req, res) {
+  getThoughtById(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
@@ -28,7 +28,7 @@ const thoughtController = {
       });
   },
   // create a thought
-  createThought(req, res) {
+  addThought(req, res) {
     Thought.create(req.body)
       .then((dbThoughtData) => {
         return User.findOneAndUpdate(
@@ -109,7 +109,7 @@ const thoughtController = {
       });
   },
   // remove reaction from a thought
-  removeReaction(req, res) {
+  deleteReaction(req, res) {
     Thought.findOneAndUpdate(
       { _id: req.params.thoughtId },
       { $pull: { reactions: { reactionId: req.params.reactionId } } },

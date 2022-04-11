@@ -2,7 +2,7 @@ const { User, Thought } = require('../models');
 
 const userController = {
   // get all users
-  getUsers(req, res) {
+  getAllUsers(req, res) {
     User.find()
       .select('-__v')
       .then((dbUserData) => {
@@ -14,7 +14,7 @@ const userController = {
       });
   },
   // get single user by id
-  getSingleUser(req, res) {
+  getUserById(req, res) {
     User.findOne({ _id: req.params.userId })
       .select('-__v')
       .populate('friends')
@@ -31,7 +31,7 @@ const userController = {
       });
   },
   // create a new user
-  createUser(req, res) {
+addUser(req, res) {
     User.create(req.body)
       .then((dbUserData) => {
         res.json(dbUserData);
