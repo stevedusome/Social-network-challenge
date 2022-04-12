@@ -51,7 +51,7 @@ const thoughtController = {
   },
   // update thought
   updateThought(req, res) {
-    Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body }, { runValidators: true, new: true })
+    Thought.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { runValidators: true, new: true })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
           return res.status(404).json({ message: 'No thought with this id!' });
@@ -65,7 +65,7 @@ const thoughtController = {
   },
   // delete thought
   deleteThought(req, res) {
-    Thought.findOneAndRemove({ _id: req.params.thoughtId })
+    Thought.findOneAndRemove({ _id: req.params.id })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
           return res.status(404).json({ message: 'No thought with this id!' });
@@ -73,8 +73,8 @@ const thoughtController = {
 
         // remove thought id from user's `thoughts` field
         return User.findOneAndUpdate(
-          { thoughts: req.params.thoughtId },
-          { $pull: { thoughts: req.params.thoughtId } },
+          { username: dbThoughtData.username },
+          { $pull: { thoughts: req.params.id } },
           { new: true }
         );
       })
@@ -93,7 +93,7 @@ const thoughtController = {
   // add a reaction to a thought
   addReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
+      { _id: req.params.id },
       { $addToSet: { reactions: req.body } },
       { runValidators: true, new: true }
     )
@@ -111,7 +111,7 @@ const thoughtController = {
   // remove reaction from a thought
   deleteReaction(req, res) {
     Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
+      { _id: req.params.id },
       { $pull: { reactions: { reactionId: req.params.reactionId } } },
       { runValidators: true, new: true }
     )
