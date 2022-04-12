@@ -45,7 +45,7 @@
 
   ## Contributing
 
-  TA assistance Ismeal/Estiven @stevedusome and Tutor assistance Joem Casusi
+  TA assistance Ismeal/Estiven @tinastouch and Tutor assistance Joem Casusi
 
 ## Walkthrough
 
@@ -70,6 +70,6 @@ https://user-images.githubusercontent.com/93742788/162889380-632fcbdf-4c80-4027-
 ## Questions
 
 If you have any questions about the repo, open an issue or contact me directly at
-tinastouch@gmail.com. 
+stevedusome@gmail.com. 
 
-You can find more of my work at https://github.com/tinastouch.
+You can find more of my work at https://github.com/stevedusome.
